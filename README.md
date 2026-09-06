@@ -1,55 +1,62 @@
 # कला-Connect
 
-## Firebase setup
+A voice-first Flutter app that helps artisans photograph a product, create a
+catalogue draft, and get a suggested price range.
 
-1. Create a Firebase project and register the Android app id shown in `android/app/build.gradle.kts`.
-2. Enable **Phone** under Firebase Authentication → Sign-in method.
-3. Create a Cloud Firestore database and a Cloud Storage bucket.
-4. Install the Firebase CLI, authenticate it, then install FlutterFire CLI:
+## Run it locally
 
-   ```powershell
-   firebase login
-   dart pub global activate flutterfire_cli
-   flutterfire configure
-   ```
+### 1. Install Flutter
 
-5. Deploy the included owner-only development rules:
+Install the Flutter SDK, then confirm it is ready:
 
-   ```powershell
-   firebase deploy --only firestore:rules,storage
-   ```
+```powershell
+flutter doctor
+```
 
-6. Run the application:
+### 2. Clone the project
 
-   ```powershell
-   flutter run
-   ```
+```powershell
+git clone https://github.com/harshpjain77-design/kala-connect.git
+cd kala-connect
+```
 
-The application starts in local demo authentication mode until Firebase Phone
-Authentication is enabled and Android SHA fingerprints are registered. Use any
-valid-looking number and OTP `123456` for local testing. To use real Firebase
-Phone Authentication after configuring it, run:
+### 3. Install packages and run
+
+Connect an Android phone with USB debugging enabled, or start an Android
+emulator. Then run:
+
+```powershell
+flutter pub get
+flutter run
+```
+
+Allow camera, microphone, and photo-library permissions when Android asks.
+
+## Demo login
+
+The app starts in demo mode, so Firebase setup is not needed to test it.
+
+- Phone number: enter any valid-looking number, for example `+919876543210`
+- OTP: `123456`
+
+## Build an APK
+
+```powershell
+flutter build apk --debug
+```
+
+The APK will be at:
+
+```text
+build\app\outputs\flutter-apk\app-debug.apk
+```
+
+## Optional: real Firebase OTP
+
+Firebase is already connected in the project files, but real OTP requires the
+project owner to enable Phone Authentication, add Android SHA fingerprints, and
+initialize Storage in Firebase Console. Once that is complete, run:
 
 ```powershell
 flutter run --dart-define=USE_FIREBASE=true
 ```
-
-To force local demo mode:
-
-```powershell
-flutter run --dart-define=USE_FIREBASE=false
-```
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
