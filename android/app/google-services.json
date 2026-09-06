@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382722245058",
+    "project_id": "kala-connect-2fa27",
+    "storage_bucket": "kala-connect-2fa27.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382722245058:android:dc1d7d7e5e704dbe23165b",
+        "android_client_info": {
+          "package_name": "com.example.kala_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjTwXZ0HlpsOjoyQQzEFwfvlWIMlTbSAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

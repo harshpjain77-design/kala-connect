@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // An artisan owns their profile and every product below it. Buyer-facing
+    // public catalog documents should be projected by a trusted Cloud Function.
+    match /artisans/{artisanId} {
+      allow read, create, update, delete: if request.auth != null && request.auth.uid == artisanId;
+
+      match /products/{productId} {
+        allow read, create, update, delete: if request.auth != null && request.auth.uid == artisanId;
+      }
+    }
+  }
+}
